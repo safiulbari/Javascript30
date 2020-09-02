@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Info</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sora:wght@700&display=swap');
+        * {
+            font-family: 'Sora', sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+        }
+        .container{
+            position : absolute;    
+            width    : 200px;
+            height   : 200px;
+            left     : 50%;
+            top      : 45%;
+            margin-left : -100px;
+            margin-top  : -100px;
+        }
+        .charCode {
+            font-size: 100pt;
+        }
+        .char {
+            font-size: 36pt;
+            color: #ffbd2e;
+            text-align: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="charCode"></div>
+        <div class="char"></div>
+    </div>
+    <script>
+        window.addEventListener('keydown',function(e){
+            const code = document.querySelector(".charCode");
+            code.innerHTML=e.keyCode;
+            const key = document.querySelector(".char");
+            if(e.keyCode == '32'){
+                key.innerHTML= "space";
+                return;
+            }
+            key.innerHTML=e.key;
+        })
+
+    </script>
+</body>
+</html>
