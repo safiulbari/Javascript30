@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+        }
+        .container{
+            margin: 0 auto;
+            margin-top: 40vh;
+            text-align: center;
+            font-size: 72pt;
+        }
+        /**.col {
+            display: inline-block;
+            padding: 20px;
+            width: 16px;
+            height: 120px;
+            top: 200px;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+            position: fixed;
+            left: 0px;
+        }
+    
+        .hourCol {
+
+            background-color: lightcoral;
+        }
+        .minuteCol {
+
+            background-color: mediumslateblue;
+        }
+        .secondCol {
+
+            background-color: palegreen;
+        }*/
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="hour"></span>:<span class="minute"></span>:<span class="second"></span><span class="format"></span>
+        <!--<div class="timerTable">
+            <span class="hourCol col"></span>
+            <span class="minuteCol col"></span>
+            <span class="secondCol col"></span>
+        </div>-->
+    </div>
+    <script>    
+        const format = document.querySelector('.format');
+
+        function setDate(){
+            const now = new Date();
+            var hour = now.getHours();
+            if(hour >= 12){
+                hour -= 12;
+                format.innerHTML = "PM";
+            }else {
+                format.innerHTML = " am";
+            }
+            const hourValue = document.querySelector(".hour");
+            hourValue.innerHTML = hour;
+
+            var minute = now.getMinutes();
+            const minuteValue = document.querySelector(".minute");
+            minuteValue.innerHTML = minute;
+
+            var second = now.getSeconds();
+            const secondValue = document.querySelector(".second");
+            secondValue.innerHTML = second;
+
+            const hourCol = document.querySelector('.hourCol');
+            const minuteCol = document.querySelector('.minuteCol');
+            const secondCol = document.querySelector('.secondCol');
+
+            //var hHeight = hour * 10;
+            //var mHeight = ((minute / 60) * 12)*10;
+            //var sHeight = ((second / 60) * 12)*10;
+            //hourCol.style.height = `${hour*10}px`; 
+            //minuteCol.style.height = `${minute*10}px`; 
+            //secondCol.style.height = `${second*10}px`; 
+        }
+
+        setInterval(setDate, 1000);
+        
+    </script>
+</body>
+</html>
